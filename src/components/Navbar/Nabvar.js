@@ -1,9 +1,10 @@
 import React from 'react'
 import { Link, NavLink } from 'react-router-dom'
+import './navbar.css'
 
 export const Navbar = () => {
     return (
-        <nav className="navbar navbar-expand-sm navbar-dark bg-dark">
+        <nav className="navbar navbar-expand-sm navbar-dark color">
             
             <Link 
                 className="navbar-brand" 
