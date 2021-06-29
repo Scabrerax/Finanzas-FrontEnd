@@ -1,0 +1,17 @@
+:root{
+    --primary-color: #235e1b;
+    --secundary-color: #70f35f;
+/* 
+    --primary-color: #ffffff;
+    --secundary-color: #c1d8be; */
+
+    --contain-color: #cff7ca;
+    --contain2-color: #91e684;    
+
+    --title-color: #1e1f1e;    
+    --subtitle-color: #000000;
+
+    --button-color: #012405;
+    
+
+}

@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {App} from './components/App'
+import {Compilador} from './Compilador'
 
 ReactDOM.render(
-  <App />,
+  <Compilador />,
   document.getElementById('root')
 );
 
