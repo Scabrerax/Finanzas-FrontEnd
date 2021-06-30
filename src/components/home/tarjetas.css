@@ -1,0 +1,11 @@
+@import '../../globals.css';
+
+.dimensiones{
+    width: 200px;
+    height: 150px;
+}
+.mes{
+    flex-basis: 10rem;
+    flex-grow: 1;
+    margin: 10px;
+}
