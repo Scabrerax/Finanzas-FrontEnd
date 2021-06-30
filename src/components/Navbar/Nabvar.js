@@ -1,43 +1,37 @@
 import React from 'react'
-import { Link, NavLink } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import './navbar.css'
 
 export const Navbar = () => {
-    return (
-        <nav className="navbar navbar-expand-sm navbar-dark color">
-            
-            <Link 
-                className="navbar-brand" 
-                to="/"
-            >
-                Finan Fácil
-            </Link>
+  return (
+    <nav className="navbar navbar-expand-sm navbar-dark color">
+      <Link className="navbar-brand" to="/" >
+        <img src="./assets/logo.png" alt="piggy-bank logo"/>
+        Finan Fácil
+      </Link>
 
-            <div className="navbar-collapse collapse w-100 order-3 dual-collapse2">
-                <ul className="navbar-nav ml-auto">
-                    <div>
-                        <h5 className='mt-2'>
-                            Balance completo
-                        </h5>
-                    </div>
-                    <NavLink 
-                        activeClassName="active"
-                        className="nav-item nav-link" 
-                        exact
-                        to="/login"
-                    >
-                        Perfil
-                    </NavLink>
-                    <NavLink 
-                        activeClassName="active"
-                        className="nav-item nav-link" 
-                        exact
-                        to="/login"
-                    >
-                        Logout
-                    </NavLink>
-                </ul>
+      <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span className="navbar-toggler-icon"></span>
+        </button>
+
+      <div className="navbar-collapse collapse w-100 order-3 dual-collapse2" id="navbarSupportedContent">
+        <ul className="navbar-nav ml-auto">
+          <div>
+            <h5 className=''>
+              Balance completo
+            </h5>
+          </div>
+          <li className="nav-item dropdown">
+            <div className="nav-link dropdown-toggle cursor" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i className="fas fa-user-cog fa-2x"></i>
             </div>
-        </nav>
-    )
+            <div className="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+              <Link className="dropdown-item" to="/">Cerrar sesión</Link>
+              <Link className="dropdown-item" to="/">Cambiar contraseña</Link>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  )
 }
