@@ -70,6 +70,8 @@ body {
 
 .box-form .right h5 {
     margin: 1px;
+    margin-bottom: 20px;
+    font-weight: 700;
     font-size: 6vmax;
     line-height: 1;
     color: var(--title-color)
@@ -79,7 +81,7 @@ body {
     font-size: 14px;
     color: var(--subtitle-color);
 }
-.box-form .right .inputs {
+.box-form .right .form {
     overflow: hidden;
 }
 .box-form .right input {
@@ -92,7 +94,8 @@ body {
     outline: none;
     border-bottom: 2px solid #839486;
 }
-.box-form .right .remember-me--forget-password {
+.box-form .right div  {
+    margin-top: 20px;
     display: flex;
     color: var(--subtitle-color);
 }
