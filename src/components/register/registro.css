@@ -1,13 +1,5 @@
 @import '../../globals.css';
 
-body {
-    background-image: linear-gradient(135deg, var(--secundary-color) 10%, var(--primary-color) 100%);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    font-family: 'Open Sans', sans-serif;
-    color: #333;
-}
 .box-form {
     margin: 30px auto;
     width: 80%;
