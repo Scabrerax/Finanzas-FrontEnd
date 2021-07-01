@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { startLogin } from "../../actions/login";
 import { useForm } from "../../hooks/useForm";
+import { Alerta } from "../alertas/Alerta";
 import "./inicio.css";
 
 export const Login = () => {
@@ -14,13 +15,16 @@ export const Login = () => {
   }
 
   const [{ email, password }, handleInputChange] = useForm(initialState)
-
-  const handleLogin = (e) => {
+  const [alerta, setAlerta] = useState(false)
+  const handleLogin = async(e) => {
     e.preventDefault();
-    dispatch(startLogin({
+    const {error,data} = await dispatch(startLogin({
       email,
       password,
     }))
+    if(error){
+      return  setAlerta(true)
+    }
   }
 
   return (
@@ -31,7 +35,10 @@ export const Login = () => {
           <p>Aquí manejarás tus finanzas de una manera sencilla y amigable.</p>
         </div>
       </div>
-
+      {
+        alerta &&
+        <Alerta/>
+      }
       <div className="right">
         <h5>Iniciar Sesión</h5>
         <p className="mt-5">

@@ -8,7 +8,9 @@ export const startLogin = (user) => {
     const res = await fetchSinToken("auth", user, "POST");
     const data = await res.json();
     if (data.error) {
-      Swal.fire('Error', data.message, 'error')
+      return {
+        error: true
+      }
     }else{
       localStorage.setItem("token", data.data.token);
       dispatch(login())
