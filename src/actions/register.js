@@ -11,6 +11,7 @@ export const startRegister = (user) =>{
             Swal.fire('Error', data.message, 'error')
         }else{
             localStorage.setItem('token',data.data.token)
+            Swal.fire('Success', data.message, 'success')
             dispatch(register())
         }
     }
