@@ -9,13 +9,13 @@ export const Login = () => {
 
   const dispatch = useDispatch()
   const initialState = {
-    email: 'scabrera1@gmail.com',
+    email: 'scabrera@gmail.com',
     password: '12345678'
   }
 
-  const [{email,password},handleInputChange] = useForm(initialState)
+  const [{ email, password }, handleInputChange] = useForm(initialState)
 
-  const handleLogin = (e) =>{
+  const handleLogin = (e) => {
     e.preventDefault();
     dispatch(startLogin({
       email,
@@ -38,27 +38,27 @@ export const Login = () => {
           ¿No tienes una cuenta? <Link to="/register">Crear una cuenta</Link>{" "}
           Solo te tomará un minuto
         </p>
-        <form onSubmit = {handleLogin}  className="inputs">
-          <input 
-            type="email" 
+        <form onSubmit={handleLogin} className="inputs">
+          <input
+            type="email"
             placeholder="Correo electrónico"
-            name = 'email'
-            value = {email}
-            onChange = {handleInputChange}
+            name='email'
+            value={email}
+            onChange={handleInputChange}
           />
           <br />
-          <input 
-            type="password" 
+          <input
+            type="password"
             placeholder="Contraseña"
-            name = 'password'
-            value = {password}
-            onChange = {handleInputChange}
+            name='password'
+            value={password}
+            onChange={handleInputChange}
           />
           <div className="remember-me--forget-password">
             <Link to='/login'>Olvidaste tu contraseña?</Link>
           </div>
           <button
-            type ='submit'
+            type='submit'
           >Ingresar</button>
         </form>
 
