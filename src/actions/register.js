@@ -1,6 +1,7 @@
 import { fetchSinToken } from "../helpers/fetch"
 
 import Swal from 'sweetalert2'
+import { types } from "../types/types"
 
 export const startRegister = (user) =>{
     return async(dispatch) =>{
@@ -10,6 +11,14 @@ export const startRegister = (user) =>{
             Swal.fire('Error', data.message, 'error')
         }else{
             localStorage.setItem('token',data.data.token)
+            dispatch(register())
         }
     }
 }
+
+const register = () => {
+    return {
+      type: types.login,
+      payload: true,
+    };
+  };
