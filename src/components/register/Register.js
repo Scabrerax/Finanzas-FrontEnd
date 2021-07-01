@@ -8,10 +8,9 @@ import { startRegister } from "../../actions/register";
 import { removeError, setError } from "../../actions/alertas";
 
 export const Register = () => {
+  const dispatch = useDispatch();
 
-  const dispatch = useDispatch()
-
-  const {msgError} = useSelector(state => state.alerta)
+  const { msgError } = useSelector((state) => state.alerta);
 
   const initialState = {
     name: "Sergio",
@@ -26,25 +25,30 @@ export const Register = () => {
   const handleRegister = (e) => {
     e.preventDefault();
     if (isFormValid()) {
-      dispatch(startRegister({
-        name,
-        email,
-        password,
-      }))
+      dispatch(
+        startRegister({
+          name,
+          email,
+          password,
+        })
+      );
     }
   };
   const isFormValid = () => {
     if (name.trim().length === 0) {
-      dispatch(setError('Error Nombre'))
+      dispatch(setError("¡¡Ingrese un nombre válido!!"));
       return false;
     } else if (!validator.isEmail(email)) {
-      dispatch(setError('Error Correo'))
+      dispatch(setError("¡¡Ingrese un correo válido!!"));
       return false;
-    } else if (password !== confirmPassword || password.length < 8) {
-      dispatch(setError('Error Contraseña'))
+    } else if (password !== confirmPassword) {
+      dispatch(setError("¡¡Las contraseñas no coinciden!!"));
+      return false;
+    } else if(password.length < 8){
+      dispatch(setError("¡¡Ingrese una contraseña válida!!"));
       return false;
     } else {
-      dispatch(removeError())
+      dispatch(removeError());
       return true;
     }
   };
@@ -63,12 +67,15 @@ export const Register = () => {
         <p>
           ¿Ya tienes una cuenta? <Link to="/login">Iniciar sesión</Link>
         </p>
-        <form onSubmit={handleRegister} className="form">
-          {
-            (msgError !== null) && <div className="danger">
+        {msgError !== null && 
+          <fragment>
+            <div className="danger">
               {msgError}
             </div>
-          }
+          </fragment>
+        }
+
+        <form onSubmit={handleRegister} className="form">
           <input
             type="text"
             placeholder="Nombre completo"
@@ -76,6 +83,7 @@ export const Register = () => {
             autoComplete="true"
             value={name}
             onChange={handleInputChange}
+            required
           />
           <br />
           <input

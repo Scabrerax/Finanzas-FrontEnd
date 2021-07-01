@@ -32,10 +32,10 @@ export const Login = () => {
   
   const isFormValid = () => {
     if (!validator.isEmail(email)) {
-      dispatch(setError('Error Nombre'))
+      dispatch(setError("¡¡Ingrese un correo válido!!"));
       return false;
     } else if (password.length < 8) {
-      dispatch(setError('Error Constraseña'))
+      dispatch(setError("¡¡Ingrese una contraseña válida!!"));
       return false;
     } else {
       dispatch(removeError())
