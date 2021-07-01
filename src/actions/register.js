@@ -7,6 +7,6 @@ export const startRegister = (user) =>{
         if(data.error){
             return console.log(data.error)
         }
-        localStorage.setItem('token',data.data)
+        localStorage.setItem('token',data.data.token)
     }
 }
