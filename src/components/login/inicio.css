@@ -89,7 +89,6 @@
 .box-form .right div  {
     margin-top: 20px;
     display: flex;
-    color: var(--subtitle-color);
 }
 .box-form .right button {
     float: left;
