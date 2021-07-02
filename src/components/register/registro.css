@@ -87,13 +87,13 @@
     border-bottom: 2px solid #839486;
 }
 .box-form .right div  {
-    margin-top: 20px;
+    height: 35px;
     display: flex;
-    color: var(--subtitle-color);
+    color: var(--contain-color);
 }
 .box-form .right button {
     float: left;
-    margin-top: 5px;
+    margin-top: 10px;
     color: #fff;
     font-size: 16px;
     padding: 12px 35px;

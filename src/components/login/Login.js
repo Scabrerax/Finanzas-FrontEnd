@@ -1,6 +1,8 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import validator from "validator";
+import { removeError, setError } from "../../actions/alertas";
 import { startLogin } from "../../actions/login";
 import { useForm } from "../../hooks/useForm";
 import { Alert } from "../alert/Alert";
@@ -9,6 +11,9 @@ import "./inicio.css";
 export const Login = () => {
 
   const dispatch = useDispatch()
+
+  const {msgError} = useSelector(state => state.alerta)
+
   const initialState = {
     email: 'scabrera@gmail.com',
     password: '12345678'
@@ -18,14 +23,32 @@ export const Login = () => {
   const [alerta, setAlerta] = useState(false)
   const handleLogin = async(e) => {
     e.preventDefault();
-    const {error,data} = await dispatch(startLogin({
-      email,
-      password,
-    }))
-    if(error){
-      return  setAlerta(true)
+    //const {error,data} = await dispatch(startLogin({
+      //email,
+      //password,
+    //}))
+    //if(error){
+      //return  setAlerta(true)
+    if (isFormValid()){
+      dispatch(startLogin({
+        email,
+        password,
+      }))
     }
   }
+  
+  const isFormValid = () => {
+    if (!validator.isEmail(email)) {
+      dispatch(setError("¡¡Ingrese un correo válido!!"));
+      return false;
+    } else if (password.length < 8) {
+      dispatch(setError("¡¡Ingrese una contraseña válida!!"));
+      return false;
+    } else {
+      dispatch(removeError())
+      return true;
+    }
+  };
 
   return (
     <div className="box-form">
@@ -42,6 +65,11 @@ export const Login = () => {
           Solo te tomará un minuto
         </p>
         <form onSubmit={handleLogin} className="inputs">
+          {
+            (msgError !== null) && <div className="danger">
+              {msgError}
+            </div>
+          }
           <input
             type="email"
             placeholder="Correo electrónico"
