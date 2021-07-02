@@ -11,7 +11,7 @@ export const startLogin = (user) => {
     }
     localStorage.setItem("token", data.data.token);
 
-    dispatch(login())
+    dispatch(login());
   };
 };
 
@@ -27,6 +27,7 @@ export const startChecking = () => {
     if (localStorage.getItem('token') !== null) {
       return dispatch(login());
     }
+    return dispatch(logOut());
   };
 };
 

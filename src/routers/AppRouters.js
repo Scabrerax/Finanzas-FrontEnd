@@ -7,6 +7,7 @@ import { Login } from "../components/login/Login";
 import { Register } from "../components/register/Register";
 import { useDispatch, useSelector } from "react-redux";
 import { startChecking } from "../actions/login";
+import { Tablas } from "../components/Tablas/Tablas";
 
 export const AppRouters = () => {
 
@@ -22,19 +23,28 @@ export const AppRouters = () => {
       <div>
         <Switch>
           <PublicRoute
-            path="/login"
+            exact path="/login"
             component={Login}
             isLogged={isLogged}
           />
           <PublicRoute
-            path="/register"
+            exact path="/register"
             component={Register}
             isLogged={isLogged}
           />
 
-          <PrivateRoute path="/home" component={Home} isLogged={isLogged} />
+          <PrivateRoute 
+            exact path="/" 
+            component={Home} 
+            isLogged={isLogged} 
+          />
+          <PrivateRoute 
+            exact path="/tablas" 
+            component={Tablas} 
+            isLogged={isLogged} 
+          />
 
-          <Redirect to="login" />
+          <Redirect to="/" />
         </Switch>
       </div>
     </Router>

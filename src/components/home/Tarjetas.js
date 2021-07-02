@@ -2,17 +2,24 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import './tarjetas.css'
 
+export const Tarjetas = (home) => {
+  const {tarjeta} = home
+  const {mes,ingresos,egresos,balance} = tarjeta
 
-export const Tarjetas = () => {
   return (
-    <div className="mes">
+    <Link to='/tablas' className="mes">
       <div className="card dimensiones">
         <div className="card-body">
-          <h5 className="card-title text-dark">Mes</h5>
-          <h6 className="card-subtitle mb-2 text-muted">balancexmes</h6>
-          <Link to="/">Ver más..</Link>
+          <h4 className="card-title text-dark">{mes}</h4>
+          <hr/>
+          <h5 className="card-title text-dark">Ingresos: </h5>
+          <h6 className="card-subtitle mb-2 text-muted">{ingresos}</h6>
+          <h5 className="card-title text-dark">Egresos:</h5>
+          <h6 className="card-subtitle mb-2 text-muted">{egresos}</h6>
+          <h5 className="card-title text-dark">Balance</h5>
+          <h6 className="card-subtitle mb-2 text-muted">{balance}</h6>
         </div>
       </div>
-    </div>
+    </Link>
   )
 }
