@@ -1,13 +1,15 @@
 import { fetchSinToken } from "../helpers/fetch";
 import { types } from "../types/types";
 
-import Swal from 'sweetalert2'
+// import Swal from 'sweetalert2'
+import { OpenModal } from "./modal";
 
 export const startLogin = (user) => {
   return async (dispatch) => {
     const res = await fetchSinToken("auth", user, "POST");
     const data = await res.json();
     if (data.error) {
+      dispatch(OpenModal())
       return {
         error: true
       }
