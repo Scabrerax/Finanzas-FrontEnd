@@ -10,6 +10,7 @@ export const startLogin = (user) => {
     const data = await res.json();
     if (data.error) {
       dispatch(OpenModal())
+      console.log(data.message)
       return {
         error: true
       }

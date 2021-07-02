@@ -3,7 +3,6 @@ import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { startLogin } from "../../actions/login";
 import { useForm } from "../../hooks/useForm";
-import { Alerta } from "../alertas/Alerta";
 import { Alert } from "../alert/Alert";
 import "./inicio.css";
 
@@ -36,10 +35,6 @@ export const Login = () => {
           <p>Aquí manejarás tus finanzas de una manera sencilla y amigable.</p>
         </div>
       </div>
-      {/* {
-        alerta &&
-        <Alerta/>
-      } */}
       <div className="right">
         <h5>Iniciar Sesión</h5>
         <p className="mt-5">
