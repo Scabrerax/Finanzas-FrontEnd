@@ -1,9 +1,6 @@
 import React from "react";
 import { CardTable } from "./CardTable";
 
-import { Navbar } from "../Navbar/Nabvar";
-import { Footer } from "../footer/Footer";
-
 export const Table = () => {
   const table = [
     {
@@ -57,7 +54,6 @@ export const Table = () => {
   ];
   return (
     <>
-      <Navbar />
       <div className="container main">
         <div className="row row-cols-1 row-cols-md-3 g-4">
           {table.map((mounth, index) => (
@@ -68,7 +64,6 @@ export const Table = () => {
           <h1>+</h1>
         </button>
       </div>
-      <Footer />
     </>
   );
 };

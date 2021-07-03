@@ -2,9 +2,9 @@ import React from 'react'
 import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { startLogOut } from '../../actions/login'
-import './navbar.css'
+import './header.css'
 
-export const Navbar = () => {
+export const Header = () => {
 
   const dispatch = useDispatch();
 
