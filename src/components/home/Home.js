@@ -1,8 +1,6 @@
 import React from "react";
 import "./home.css";
 
-import { Navbar } from "../Navbar/Nabvar";
-import { Footer } from "../footer/Footer";
 import { Cards } from "./Cards";
 
 export const Home = () => {
@@ -12,7 +10,6 @@ export const Home = () => {
   ];
   return (
     <div>
-      <Navbar />
 
       <div className="container main">
         <div className="row row-cols-1 row-cols-md-3 g-4">
@@ -27,7 +24,6 @@ export const Home = () => {
       <br />
       <br />
       <br />
-      <Footer />
     </div>
   );
 };
