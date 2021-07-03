@@ -3,15 +3,12 @@ import "./home.css";
 
 import { Navbar } from "../Navbar/Nabvar";
 import { Footer } from "../footer/Footer";
-import { Tarjetas } from "./Tarjetas";
-
-//monto: balance por mes
-//[index:123123,{mes:'enero',ingresos:'5000',egresos:'1000',balance:'4000'}]
+import { Cards } from "./Cards";
 
 export const Home = () => {
   const home = [
-    { mes: "Enero", ingresos: "5000", egresos: "1000", balance: "4000" },
-    { mes: "Febrero", ingresos: "5000", egresos: "1000", balance: "4000" },
+    { mounth: "Enero", entry: "5000", egress: "1000", balance: "4000" },
+    { mounth: "Febrero", entry: "5000", egress: "1000", balance: "4000" },
   ];
   return (
     <div>
@@ -19,8 +16,8 @@ export const Home = () => {
 
       <div className="container main">
         <div className="row row-cols-1 row-cols-md-3 g-4">
-          {home.map((mes, index) => (
-            <Tarjetas key={index} tarjeta={mes} />
+          {home.map((mounth, index) => (
+            <Cards key={index} card={mounth} />
           ))}
         </div>
         <button className="ml-auto btn btn-success btn-circle btn-xl toggle mt-2">

@@ -1,14 +1,14 @@
 import React from "react";
-import { TarjetaTabla } from "./TarjetaTabla";
+import { CardTable } from "./CardTable";
 
 import { Navbar } from "../Navbar/Nabvar";
 import { Footer } from "../footer/Footer";
 
-export const Tablas = () => {
-  const tabla = [
+export const Table = () => {
+  const table = [
     {
       reason: "Egreso",
-      budged: "5000",
+      budget: "5000",
       tables: [
         {
           reason: "pepino",
@@ -32,7 +32,7 @@ export const Tablas = () => {
     },
     {
       reason: "Gasto",
-      budged: "7000",
+      budget: "7000",
       tables: [
         {
           reason: "pepino",
@@ -60,8 +60,8 @@ export const Tablas = () => {
       <Navbar />
       <div className="container main">
         <div className="row row-cols-1 row-cols-md-3 g-4">
-          {tabla.map((mes, index) => (
-            <TarjetaTabla key={index} tarjeta={mes} />
+          {table.map((mounth, index) => (
+            <CardTable key={index} card={mounth} />
           ))}
         </div>
         <button className="ml-auto btn btn-success btn-circle btn-xl toggle mt-2">

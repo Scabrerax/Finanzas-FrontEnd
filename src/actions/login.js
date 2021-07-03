@@ -24,7 +24,7 @@ const login = () => {
 
 export const startChecking = () => {
   return async (dispatch) => {
-    if (localStorage.getItem('token') !== null) {
+    if (localStorage.getItem("token") !== null) {
       return dispatch(login());
     }
     return dispatch(logOut());
@@ -34,13 +34,13 @@ export const startChecking = () => {
 const logOut = () => {
   return {
     type: types.logout,
-    payload: false
-  }
-}
+    payload: false,
+  };
+};
 
 export const startLogOut = () => {
   return async (dispatch) => {
-    localStorage.removeItem('token')
-    dispatch(logOut())
-  }
-}
+    localStorage.removeItem("token");
+    dispatch(logOut());
+  };
+};
