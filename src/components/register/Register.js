@@ -6,6 +6,7 @@ import "./registro.css";
 import { useDispatch, useSelector } from "react-redux";
 import { startRegister } from "../../actions/register";
 import { removeError, setError } from "../../actions/alertas";
+import { Alert } from "../alert/Alert";
 
 export const Register = () => {
   const dispatch = useDispatch();
@@ -19,6 +20,10 @@ export const Register = () => {
     confirmPassword: "12345678",
   };
 
+  const handleAlert = () => {
+    dispatch(removeError())
+  };
+
   const [{ name, email, password, confirmPassword }, handleInputChange] =
     useForm(initialState);
 
@@ -30,6 +35,7 @@ export const Register = () => {
           name,
           email,
           password,
+          confirmPassword
         })
       );
     }
@@ -44,7 +50,7 @@ export const Register = () => {
     } else if (password !== confirmPassword) {
       dispatch(setError("¡¡Las contraseñas no coinciden!!"));
       return false;
-    } else if(password.length < 8){
+    } else if (password.length < 8) {
       dispatch(setError("¡¡Ingrese una contraseña válida!!"));
       return false;
     } else {
@@ -65,16 +71,11 @@ export const Register = () => {
       <div className="right">
         <h5>Regístrate</h5>
         <p>
-          ¿Ya tienes una cuenta? <Link to="/login">Iniciar sesión</Link>
+          ¿Ya tienes una cuenta? <Link to="/login" onClick={handleAlert}>Iniciar sesión</Link>
         </p>
-        {msgError !== null && 
-          <fragment>
-            <div className="danger">
-              {msgError}
-            </div>
-          </fragment>
+        {
+          (msgError) && <div className="danger">{msgError}</div>
         }
-
         <form onSubmit={handleRegister} className="form">
           <input
             type="text"
@@ -103,6 +104,7 @@ export const Register = () => {
             autoComplete="true"
             value={password}
             onChange={handleInputChange}
+            minLength="8"
             required
           />
           <br />
@@ -113,15 +115,18 @@ export const Register = () => {
             autoComplete="true"
             value={confirmPassword}
             onChange={handleInputChange}
+            minLength="8"
             required
           />
           <br />
           <div>
-            <p>Olvidaste tu contraseña?</p>
+            <Link to="/" onClick={handleAlert}>Olvidaste tu contraseña?</Link>
           </div>
           <button type="submit">Registrar</button>
         </form>
       </div>
+
+      <Alert />
     </div>
   );
 };

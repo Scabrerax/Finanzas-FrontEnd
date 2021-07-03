@@ -1,7 +1,8 @@
-import React, {  } from 'react'
+import React, { } from 'react'
 import Modal from 'react-modal';
 import { useDispatch, useSelector } from 'react-redux';
 import { CloseModal } from '../../actions/modal';
+import './alert.css'
 
 const customStyles = {
   content: {
@@ -19,18 +20,16 @@ export const Alert = () => {
 
   const { modalOpen } = useSelector(state => state.modal);
 
+  const { modalMsg } = useSelector(state => state.modalMsg)
+
   const dispatch = useDispatch();
 
   const ccloseModal = () => {
     dispatch(CloseModal())
   }
 
-  const handleAfterOpenFunc = () => {
-    setTimeout(ccloseModal(), 3000)
-  }
-
   return (
-    <div>
+    <div className="modal">
       <Modal
         isOpen={modalOpen}
         // onAfterOpen={handleAfterOpenFunc}
@@ -39,8 +38,8 @@ export const Alert = () => {
         // closeTimeoutMS={5000}
         contentLabel="Example Modal"
       >
-        <h4>Error</h4>
-        <button onClick={ccloseModal}>cerrar</button>
+        <h4>{modalMsg}</h4>
+        <button onClick={ccloseModal} className="button">cerrar</button>
       </Modal>
     </div>
   )

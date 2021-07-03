@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import validator from "validator";
@@ -12,31 +12,28 @@ export const Login = () => {
 
   const dispatch = useDispatch()
 
-  const {msgError} = useSelector(state => state.alerta)
+  const { msgError } = useSelector(state => state.alerta)
 
   const initialState = {
     email: 'scabrera@gmail.com',
     password: '12345678'
   }
 
+  const handleAlert = () => {
+    dispatch(removeError())
+  }
+
   const [{ email, password }, handleInputChange] = useForm(initialState)
-  const [alerta, setAlerta] = useState(false)
-  const handleLogin = async(e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
-    //const {error,data} = await dispatch(startLogin({
-      //email,
-      //password,
-    //}))
-    //if(error){
-      //return  setAlerta(true)
-    if (isFormValid()){
+    if (isFormValid()) {
       dispatch(startLogin({
         email,
         password,
       }))
     }
   }
-  
+
   const isFormValid = () => {
     if (!validator.isEmail(email)) {
       dispatch(setError("¡¡Ingrese un correo válido!!"));
@@ -61,14 +58,12 @@ export const Login = () => {
       <div className="right">
         <h5>Iniciar Sesión</h5>
         <p className="mt-5">
-          ¿No tienes una cuenta? <Link to="/register">Crear una cuenta</Link>{" "}
+          ¿No tienes una cuenta? <Link to="/register" onClick={handleAlert}>Crear una cuenta</Link>{" "}
           Solo te tomará un minuto
         </p>
         <form onSubmit={handleLogin} className="inputs">
           {
-            (msgError !== null) && <div className="danger">
-              {msgError}
-            </div>
+            (msgError) && <div className="danger" id="mydiv">{msgError}</div>
           }
           <input
             type="email"
@@ -76,6 +71,7 @@ export const Login = () => {
             name='email'
             value={email}
             onChange={handleInputChange}
+            required
           />
           <br />
           <input
@@ -84,6 +80,8 @@ export const Login = () => {
             name='password'
             value={password}
             onChange={handleInputChange}
+            minLength="8"
+            required
           />
           <div className="remember-me--forget-password">
             <Link to='/login'>Olvidaste tu contraseña?</Link>

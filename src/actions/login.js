@@ -1,7 +1,6 @@
 import { fetchSinToken } from "../helpers/fetch";
 import { types } from "../types/types";
-
-// import Swal from 'sweetalert2'
+import { setModalMsg } from "./modalMsg";
 import { OpenModal } from "./modal";
 
 export const startLogin = (user) => {
@@ -9,6 +8,7 @@ export const startLogin = (user) => {
     const res = await fetchSinToken("auth", user, "POST");
     const data = await res.json();
     if (data.error) {
+      dispatch(setModalMsg('Contraseña o email incorrectos'))
       dispatch(OpenModal())
       console.log(data.message)
       return {

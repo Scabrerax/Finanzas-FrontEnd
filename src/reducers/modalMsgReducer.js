@@ -1,20 +1,20 @@
 import { types } from "../types/types";
 
 const initialState = {
-  msgError: null
+  modalMsg: null
 }
 
-export const alertaReducer = (state = initialState, action) => {
+export const modalMsgReducer = (state = initialState, action) => {
   switch (action.type) {
-    case types.setError:
+    case types.setModalMsg:
       return {
         ...state,
-        msgError: action.payload,
+        modalMsg: action.payload,
       }
-    case types.removeError:
+    case types.removeModalMsg:
       return {
         ...state,
-        msgError: null,
+        modalMsg: null,
       }
     default:
       return state
