@@ -11,3 +11,15 @@
     margin: 10px;
     text-decoration-line: none;
 }
+.diverso{
+    border-radius: 5px;
+    cursor: pointer;
+    color: black;
+}
+.diverso:link {
+    background: white;
+}
+.diverso:hover {
+    
+    background: rgb(197, 235, 191);
+}
