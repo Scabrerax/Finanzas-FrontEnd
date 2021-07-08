@@ -1,25 +1,118 @@
-@import '../../globals.css';
+@import "../../globals.css";
 
-.main{
-    display: flex;
-    flex-wrap: wrap;
+.main {
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .btn-circle.btn-xl {
-    width: 70px;
-    height: 70px;
-    padding: 10px 16px;
-    border-radius: 35px;
-    font-size: 24px;
-    line-height: 1.33;
+  width: 70px;
+  height: 70px;
+  padding: 10px 16px;
+  border-radius: 35px;
+  font-size: 24px;
+  line-height: 1.33;
 }
 
 .btn-circle {
-    width: 30px;
-    height: 30px;
-    padding: 6px 0px;
-    border-radius: 15px;
-    text-align: center;
-    font-size: 12px;
-    line-height: 1.42857;
+  width: 30px;
+  height: 30px;
+  padding: 6px 0px;
+  border-radius: 15px;
+  text-align: center;
+  font-size: 12px;
+  line-height: 1.42857;
+}
+
+#liveToast {
+  visibility: hidden;
+  position: fixed;
+  z-index: 1;
+  right: 2.5%;
+  top: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 0.25rem;
+  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.1);
+  max-width: 310px;
+  width: 310px;
+  background-color: #ffffff;
+  opacity: 1;
+}
+
+#liveToast.mostrar {
+  visibility: visible;
+  -webkit-animation: fadein 0.5s, fadeout 0.5s 4.6s;
+  animation: fadein 0.5s, fadeout 0.5s 4.6s;
+}
+
+#mitoast.cerrar {
+  /* visibility: visible; */
+  -webkit-animation: fadeout 0.5s 4.8s;
+  animation: fadeout 0.5s 4.8s;
+}
+
+@-webkit-keyframes fadeout {
+  from {
+    right: 2.5%;
+    opacity: 1;
+  }
+  to {
+    right: 0;
+    opacity: 0;
+  }
+}
+
+@keyframes fadeout {
+  from {
+    right: 2.5%;
+    opacity: 1;
+  }
+  to {
+    right: 0;
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes fadein {
+  from {
+    right: 0;
+    opacity: 0;
+  }
+  to {
+    right: 2.5%;
+    opacity: 1;
+  }
+}
+
+@keyframes fadein {
+  from {
+    right: 0;
+    opacity: 0;
+  }
+  to {
+    right: 2.5%;
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeout {
+  from {
+    right: 2.5%;
+    opacity: 1;
+  }
+  to {
+    right: 0;
+    opacity: 0;
+  }
+}
+
+@keyframes fadeout {
+  from {
+    right: 2.5%;
+    opacity: 1;
+  }
+  to {
+    right: 0;
+    opacity: 0;
+  }
 }
