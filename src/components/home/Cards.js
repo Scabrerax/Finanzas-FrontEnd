@@ -12,7 +12,7 @@ export const Cards = (home) => {
         <div className="card-body">
           <h4 className="card-title text-dark">{mounth}</h4>
           <hr />
-          <Link to="/Tablas" style={{ textDecoration: "none" }}>
+          <Link to="/lateralMenu" style={{ textDecoration: "none" }}>
             <div className="diverso">
               <h5 className="card-title text-dark">Ingresos: </h5>
               <h6 className="card-subtitle mb-2 text-muted">{entry}</h6>

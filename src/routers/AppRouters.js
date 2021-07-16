@@ -8,6 +8,7 @@ import { Register } from "../components/register/Register";
 import { useDispatch, useSelector } from "react-redux";
 import { startChecking } from "../actions/login";
 import { Table } from "../components/table/Table";
+import { LateralMenu } from "../components/lateralMenu/LateralMenu";
 
 export const AppRouters = () => {
   const { isLogged } = useSelector((state) => state.auth);
@@ -39,6 +40,12 @@ export const AppRouters = () => {
             exact
             path="/tablas"
             component={Table}
+            isLogged={isLogged}
+          />
+          <PrivateRoute
+            exact
+            path="/lateralMenu"
+            component={LateralMenu}
             isLogged={isLogged}
           />
 
